@@ -1,0 +1,406 @@
+@charset "utf-8";
+
+/*HTML5 Doctor Reset CSS*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+body {
+  line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+  display:block;
+}
+
+nav ul {
+  list-style:none;
+}
+
+blockquote, q {
+  quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content:'';
+  content:none;
+}
+
+a {
+  margin:0;
+  padding:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+ins {
+  background-color:#ff9;
+  color:#000;
+  text-decoration:none;
+}
+
+mark {
+  background-color:#ff9;
+  color:#000; 
+  font-style:italic;
+  font-weight:bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom:1px dotted;
+  cursor:help;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+hr {
+  display:block;
+  height:1px;
+  border:0;
+  border-top:1px solid #cccccc;
+  margin:1em 0;
+  padding:0;
+}
+
+input, select {
+  vertical-align:middle;
+}
+/*HTML5 Doctor Reset CSS記述終わり*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.inner {
+  width; 100%;
+  overflow: hidden;
+}
+/**/
+header {
+  height: 80px;
+  background-color: #26d0c9;
+  display: flex;
+  justify-content:space-between;
+  
+}
+.header-logo {
+  font-size: 40px;
+  padding: 20px;
+  font-family: 'Philosopher', serif;
+  color:aliceblue;
+  font-weight: bold;
+  
+}
+.header-nav ul {
+  display: flex;
+}
+.header-nav ul li {
+  list-style: none;
+/*  margin: 50px 0px 0px 80px;*/
+  padding: 50px 100px 0px 0px;
+}
+.right {
+  
+}
+.header-nav ul li a {
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: bold;
+}
+.header-nav ul li a:hover {
+  border-bottom: 2px solid aliceblue;
+}
+/**/
+main {
+  width: 90%;
+  margin: 80px auto;
+}
+.main-title h1 {
+  font-size: 120px;
+  font-family: 'Philosopher', serif;
+}
+span {
+  color: red;
+}
+.main-title p {
+  font-size: 30px;
+  margin: 20px 0 80px;
+  font-weight: bold;
+}
+.main-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #dee7ec;
+  padding-bottom: 10px;
+}
+.main-item {
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 80px;
+}
+.item img{
+  width: 100%;
+}
+.item p {
+  padding: 10px 0;
+  font-size: 20px;
+}
+/**/
+form h3 {
+  border-bottom: 1px solid #dee7ec;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+form p {
+  margin: 20px 0 5px;
+}
+input[type="email"] {
+  width: 300px;
+  height: 25px;
+}
+textarea {
+  width: 500px;
+  height: 80px;
+}
+input[type="submit"] {
+  height: 50px;
+  width: 200px;
+}
+/**/
+footer {
+  height: 80px;
+  background-color: #2f5167;
+}
+footer p {
+  text-align: center;
+  padding-top: 35px;
+  color: aliceblue;
+}
+
+
+
+
+
+/*           ハンバーガー                                  */
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+  padding: 30px 20px;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  transition: all 0.4s;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: #333;
+  display: block;
+  content: '';
+  cursor: pointer;
+  z-index: 9999;/*最前面*/
+}
+
+#nav-open span:before {
+  bottom: -8px;
+}
+
+#nav-open span:after {
+  bottom: -16px;
+}
+
+
+/*中身*/
+#nav-content {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: .2s ease-in-out;
+}
+
+#nav-content.open {
+  display: block;
+  opacity: 1;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);/*背景色*/
+  overflow: hidden;/*ブラー効果でボヤけた部分を非表示*/
+}
+
+
+/*:beforeにぼかし効果を設定する*/
+#nav-content.open:before {
+  content: '';
+  overflow: hidden;
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  z-index: -1;/*重なり順序を一番下にしておく*/
+}
+
+
+/*チェックが入ったら表示する内容*/
+
+.hamburger-top {
+  height: 40px;/*×ボタンと被らないように*/
+}
+
+.category {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.category-title {
+  padding: 0.5rem;
+}
+
+.category-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+
+/*三本線を動かす*/
+#nav-open.active span {
+  -webkit-transform: translateY(8px) rotate(-45deg);
+  transform: translateY(8px) rotate(-45deg);
+}
+
+#nav-open.active span:before {
+  -webkit-transform: translateY(-8px) rotate(45deg);/*打ち消す*/
+  transform: translateY(-8px) rotate(45deg);/*打ち消す*/
+  opacity: 0;
+}
+
+#nav-open.active span:after {
+  -webkit-transform: translateY(-16px) rotate(45deg);
+  transform: translateY(-16px) rotate(90deg);
+}
+
+/*                                                      */
+
+
+
+
+
+
+/*    レスポンシブ（スマホ縦）              */
+@media (max-width: 850px) {
+  .item img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  
+  .header-logo {
+    font-size: 50px;
+    padding: 17px 10px;
+  }
+  .header-nav {
+    display: none;
+  }
+  main {
+    margin-top: 40px;
+  }
+  .main-title h1 {
+    font-size: 70px;
+    padding-bottom: 20px;
+  }
+  .main-item {
+    display: block;
+    margin-bottom: 40px;
+    
+  }
+  .item img {
+    width: 100%;
+  }
+  .item p{
+    padding: 10px 0 40px;
+    text-align: center;
+  }
+  textarea {
+    width: 100%;
+  }
+
+}
+
+
+
+
+
+/*ハンバーガー*/
+@media screen and (min-width:480px) {
+  #nav-open {
+    display:none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
